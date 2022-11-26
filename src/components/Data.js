@@ -19,7 +19,7 @@ export const firstPageData = [
     },
     {
         id: 3,
-        name: "Python",
+        name: "Php",
         img: php
     },
 ]
@@ -32,12 +32,12 @@ export const thirdPageData = [
     },
     {
         id: 2,
-        name: "Stack Learner",
+        channelName: "Stack Learner",
         img: stackLearner
     },
     {
         id: 3,
-        name: "Learn With Sumit",
+        channelName: "Learn With Sumit",
         img: lws
     },
 ]

@@ -3,28 +3,25 @@ import { Container } from '../styles/Page.styled'
 import codeABC from "../assets/codeABC.png"
 import lws from "../assets/lws.png"
 import stackLearner from "../assets/stackLearner.png"
+import { thirdPageData } from './Data'
 
-export default function ThirdPage() {
+export default function ThirdPage({ setPage, setSurveyData, surveyData }) {
     return (
         <Container>
             <h2>Your Favourite Youtube Channel?</h2>
             <div className='card_container'>
-                <div className='card' >
-                    <img src={codeABC} alt="code abc" />
-                    <p>Code ABC</p>
-                </div>
-                <div className='card' >
-                    <img src={stackLearner} alt="stack" />
-                    <p>Stack Learner</p>
-                </div>
-                <div className='card' >
-                    <img src={lws} alt="javascript" />
-                    <p>Learn With Sumit</p>
-                </div>
+                {
+                    thirdPageData.map(channel => (
+                        <div className='card' key={channel.id} style={{ border: surveyData.favouriteChannel.includes(channel.channelName) ? "2px solid #000" : "" }} onClick={() => setSurveyData({ ...surveyData, favouriteChannel: [...surveyData.favouriteChannel, channel.channelName] })} >
+                            <img src={channel.img} alt={channel.channelName} />
+                            <p>{channel.channelName}</p>
+                        </div>
+                    ))
+                }
             </div>
             <div className='btn_container'>
-                <button>Prev</button>
-                <button>Next</button>
+                <button onClick={() => setPage(prevPage => prevPage - 1)}>Prev</button>
+                <button onClick={() => setPage(4)}>Next</button>
             </div>
         </Container>
     )
